@@ -17,3 +17,12 @@ async def main(urls):
     async with aiohttp.ClientSession() as session:
         data = await get_all(session, urls)
         return data
+
+if __name__ == "__main__":
+    urls = [
+        "http://books.toscrape.com/catalogue/page-1.html",
+        "http://books.toscrape.com/catalogue/page-2.html",
+        "http://books.toscrape.com/catalogue/page-3.html",
+    ]
+    results = asyncio.run(main(urls))
+    print(len(results))
